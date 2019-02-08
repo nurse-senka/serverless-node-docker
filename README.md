@@ -3,6 +3,9 @@
 
 Serverless環境（主にAWS Lambda）で利用するDockerfileを管理する
 
+`node:8.10-alpine`をベースとしたイメージです。`serverless`がインストールされています。
+
+
 ## Docker Hub
 
 https://cloud.docker.com/u/nursesenka/repository/registry-1.docker.io/nursesenka/serverless-node
@@ -14,7 +17,22 @@ https://dockeri.co/
 
 ## 検証手順
 
-※ 後で記載します。
+ビルドが実行できることを確認してください。
+
+```
+docker build -t nursesenka/serverless-node .
+```
+
+`docker images`を実行し、`nursesenka/serverless-node  `というイメージが作成されていることを確認してください。
+```
+REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
+nursesenka/serverless-node         latest              ef098b358ad0        8 minutes ago       177MB
+```
+
+下記を実行し、コンテナが起動できることとserverlessのバージョンが表示されることを確認してください。
+```
+docker run -it nursesenka/serverless-node serverless -v
+```
 
 ## 自動Buildについて
 
