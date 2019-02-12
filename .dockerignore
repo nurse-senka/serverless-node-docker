@@ -1,0 +1,6 @@
+/.github
+/.idea
+.gitignore
+LICENSE
+serverless-node-docker.iml
+README.md
