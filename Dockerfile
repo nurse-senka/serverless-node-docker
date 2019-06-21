@@ -1,8 +1,8 @@
-FROM node:10.15.3-alpine
+FROM node:10.16.0-alpine
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=$PATH:/home/node/.npm-global/bin
-ENV YARN_VERSION 1.13.0
+ENV YARN_VERSION 1.16.0
 
 RUN set -x && \
   apk add --update --no-cache tzdata --virtual .build-deps-yarn curl && \
@@ -16,7 +16,7 @@ RUN set -x && \
   rm yarn-v$YARN_VERSION.tar.gz && \
   apk del .build-deps-yarn && \
   npm install --global npm@6.9.0 && \
-  yarn global add serverless@1.38.0
+  yarn global add serverless@1.45.1
 
 USER node
 
